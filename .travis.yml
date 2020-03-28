@@ -1,0 +1,11 @@
+language: generic
+
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t patsk135/react-docker -f Dockerfile.dev .
+
+scrpit:
+  - docker run -e CI=true patsk135/react-docker npm run test
